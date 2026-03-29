@@ -91,7 +91,7 @@ function Navbar() {
           {/* CTA DESKTOP */}
           <div className="hidden md:block">
             <a
-              href="https://wa.me/573124990624?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
+              href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2 rounded-full bg-red-600 text-sm font-semibold hover:bg-red-700 transition shadow-lg"
@@ -147,7 +147,7 @@ function Navbar() {
 
             {/* CTA MOBILE */}
             <a
-              href="https://wa.me/573124990624?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
+              href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
               onClick={() => setOpen(false)}
               className="mt-6 px-6 py-3 rounded-full bg-red-600 text-lg font-semibold"
             >

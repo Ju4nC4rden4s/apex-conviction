@@ -114,7 +114,7 @@ function Hero() {
             ref={btnRef}
             onMouseMove={handleMove}
             onMouseLeave={reset}
-            href="https://wa.me/573124990624?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
+            href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
             className="relative px-7 py-3 rounded-full font-semibold text-white bg-red-600 overflow-hidden group text-sm active:scale-95"
           >
             <span className="absolute inset-0 bg-red-500 blur-xl opacity-30 group-hover:opacity-60 transition"></span>

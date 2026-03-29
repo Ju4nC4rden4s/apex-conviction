@@ -22,7 +22,7 @@ function Footer() {
 
         {/* CTA */}
         <a
-          href="https://wa.me/573124990624?text=Hola%2C%20quiero%20empezar%20a%20entrenar%20en%20APEX%20CONVICTION"
+          href="https://wa.me/573024221645?text=Hola%2C%20quiero%20empezar%20a%20entrenar%20en%20APEX%20CONVICTION"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-7 md:px-8 py-3 rounded-full bg-red-600 text-white font-semibold text-sm md:text-base 

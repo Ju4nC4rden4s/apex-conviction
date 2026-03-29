@@ -36,7 +36,7 @@ const horarios = [
 // 🔥 GENERAR LINK
 const generarLink = (dia, hora) => {
   const mensaje = `Hola, quiero reservar el ${dia} a las ${hora} en APEX CONVICTION`;
-  return `https://wa.me/573124990624?text=${encodeURIComponent(mensaje)}`;
+  return `https://wa.me/573024221645?text=${encodeURIComponent(mensaje)}`;
 };
 
 function Horarios() {
@@ -134,7 +134,7 @@ function Horarios() {
       {/* CTA */}
       <div className="text-center mt-12 md:mt-16">
         <a
-          href="https://wa.me/573124990624?text=Hola%2C%20quiero%20reservar%20una%20clase%20en%20APEX%20CONVICTION"
+          href="https://wa.me/573024221645?text=Hola%2C%20quiero%20reservar%20una%20clase%20en%20APEX%20CONVICTION"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-8 py-3 rounded-full bg-black text-white font-semibold hover:bg-gray-900 transition"

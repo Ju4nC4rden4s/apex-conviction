@@ -34,7 +34,7 @@ function Contacto() {
     );
 
     setTimeout(() => {
-      window.open(`https://wa.me/573124990624?text=${texto}`, "_blank");
+      window.open(`https://wa.me/573024221645?text=${texto}`, "_blank");
       setLoading(false);
     }, 400);
   };

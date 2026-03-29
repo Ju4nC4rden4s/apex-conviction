@@ -118,7 +118,7 @@ function Planes() {
             </ul>
 
             <a
-              href={`https://wa.me/573124990624?text=${encodeURIComponent(
+              href={`https://wa.me/573024221645?text=${encodeURIComponent(
                 plan.whatsapp
               )}`}
               className={`block text-center py-2 rounded-full text-sm font-semibold ${
@@ -180,7 +180,7 @@ function Planes() {
             </ul>
 
             <a
-              href={`https://wa.me/573124990624?text=${encodeURIComponent(
+              href={`https://wa.me/573024221645?text=${encodeURIComponent(
                 plan.whatsapp
               )}`}
               className={`block text-center py-3 rounded-full font-semibold ${
