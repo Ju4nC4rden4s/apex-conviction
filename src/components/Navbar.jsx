@@ -14,7 +14,6 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  // Detectar sección activa
   useEffect(() => {
     const sections = document.querySelectorAll("section");
 
@@ -34,7 +33,6 @@ function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Detectar scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -72,7 +70,7 @@ function Navbar() {
                   className={`relative px-1 py-1 transition-colors duration-300 ${
                     active === item.link
                       ? "text-white"
-                      : "text-white/60 hover:text-white"
+                      : "text-white/60 hover:text-gray-300"
                   }`}
                 >
                   {item.name}
@@ -80,7 +78,7 @@ function Navbar() {
                   {active === item.link && (
                     <motion.span
                       layoutId="activeIndicator"
-                      className="absolute left-0 -bottom-2 h-[2px] w-full bg-red-500"
+                      className="absolute left-0 -bottom-2 h-[2px] w-full bg-gray-300"
                     />
                   )}
                 </a>
@@ -94,7 +92,7 @@ function Navbar() {
               href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 rounded-full bg-red-600 text-sm font-semibold hover:bg-red-700 transition shadow-lg"
+              className="px-5 py-2 rounded-full bg-gray-200 text-black text-sm font-semibold hover:bg-gray-300 transition shadow-lg"
             >
               Entrenar
             </a>
@@ -139,7 +137,7 @@ function Navbar() {
                 key={item.name}
                 href={item.link}
                 onClick={() => setOpen(false)}
-                className="hover:text-red-500 transition"
+                className="hover:text-gray-300 transition"
               >
                 {item.name}
               </a>
@@ -149,7 +147,7 @@ function Navbar() {
             <a
               href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
               onClick={() => setOpen(false)}
-              className="mt-6 px-6 py-3 rounded-full bg-red-600 text-lg font-semibold"
+              className="mt-6 px-6 py-3 rounded-full bg-gray-200 text-black text-lg font-semibold"
             >
               Entrenar ahora
             </a>

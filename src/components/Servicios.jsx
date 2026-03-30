@@ -45,7 +45,7 @@ function Servicios() {
         </h2>
       </motion.div>
 
-      {/* MOBILE: SCROLL HORIZONTAL */}
+      {/* MOBILE */}
       <div className="flex gap-4 overflow-x-auto pb-4 md:hidden snap-x snap-mandatory">
 
         {servicios.map((item, i) => (
@@ -80,7 +80,7 @@ function Servicios() {
 
       </div>
 
-      {/* DESKTOP GRID */}
+      {/* DESKTOP */}
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
 
         {servicios.map((item, i) => (
@@ -114,7 +114,8 @@ function Servicios() {
                 {item.descripcion}
               </p>
 
-              <div className="w-0 h-[2px] bg-red-500 mt-4 group-hover:w-10 transition-all duration-500"></div>
+              {/* LÍNEA ANIMADA → GRIS */}
+              <div className="w-0 h-[2px] bg-gray-300 mt-4 group-hover:w-10 transition-all duration-500"></div>
 
             </div>
 

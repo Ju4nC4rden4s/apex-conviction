@@ -83,7 +83,7 @@ function Contacto() {
             value={form.nombre}
             onChange={handleChange}
             required
-            className="w-full p-4 text-base rounded-xl bg-black border border-white/10 focus:border-red-500 focus:outline-none transition"
+            className="w-full p-4 text-base rounded-xl bg-black border border-white/10 focus:border-gray-300 focus:outline-none transition"
           />
 
           {/* OBJETIVO */}
@@ -100,7 +100,7 @@ function Contacto() {
                   onClick={() => setForm({ ...form, objetivo: obj })}
                   className={`py-2 rounded-full text-xs md:text-sm transition ${
                     form.objetivo === obj
-                      ? "bg-red-600"
+                      ? "bg-gray-200 text-black"
                       : "bg-white/10 hover:bg-white/20"
                   }`}
                 >
@@ -117,14 +117,14 @@ function Contacto() {
             value={form.mensaje}
             onChange={handleChange}
             rows="3"
-            className="w-full p-4 text-base rounded-xl bg-black border border-white/10 focus:border-red-500 focus:outline-none transition"
+            className="w-full p-4 text-base rounded-xl bg-black border border-white/10 focus:border-gray-300 focus:outline-none transition"
           ></textarea>
 
           {/* BOTÓN */}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-red-600 py-3 rounded-full font-semibold text-base hover:bg-red-700 transition active:scale-95"
+            className="w-full bg-gray-200 text-black py-3 rounded-full font-semibold text-base hover:bg-gray-300 transition active:scale-95"
           >
             {loading ? "Enviando..." : "Hablar por WhatsApp"}
           </button>

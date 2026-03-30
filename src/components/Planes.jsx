@@ -40,7 +40,6 @@ const planes = [
   },
 ];
 
-// 🔥 ORDENAR: destacado primero en mobile
 const ordenarPlanes = () => {
   const destacado = planes.find(p => p.destacado);
   const otros = planes.filter(p => !p.destacado);
@@ -74,7 +73,7 @@ function Planes() {
         </p>
       </motion.div>
 
-      {/* MOBILE: STACK */}
+      {/* MOBILE */}
       <div className="flex flex-col gap-6 md:hidden max-w-md mx-auto">
 
         {planesOrdenados.map((plan, i) => (
@@ -85,13 +84,13 @@ function Planes() {
             transition={{ delay: i * 0.1 }}
             className={`relative rounded-3xl p-6 transition ${
               plan.destacado
-                ? "bg-gradient-to-b from-red-600 to-red-700 shadow-xl"
+                ? "bg-gradient-to-b from-gray-300 to-gray-500 text-black shadow-xl"
                 : "bg-white/5 border border-white/10"
             }`}
           >
 
             {plan.destacado && (
-              <span className="absolute top-3 right-3 text-[10px] bg-black px-2 py-1 rounded-full">
+              <span className="absolute top-3 right-3 text-[10px] bg-black text-white px-2 py-1 rounded-full">
                 Más popular
               </span>
             )}
@@ -104,14 +103,14 @@ function Planes() {
               {plan.precio}
             </p>
 
-            <p className="text-gray-300 mb-4 text-xs">
+            <p className={`mb-4 text-xs ${plan.destacado ? "text-black/80" : "text-gray-300"}`}>
               {plan.descripcion}
             </p>
 
             <ul className="text-xs space-y-2 mb-5">
               {plan.detalles.map((d, idx) => (
                 <li key={idx} className="flex gap-2">
-                  <span className="text-red-500">•</span>
+                  <span className="text-gray-300">•</span>
                   <span>{d}</span>
                 </li>
               ))}
@@ -123,7 +122,7 @@ function Planes() {
               )}`}
               className={`block text-center py-2 rounded-full text-sm font-semibold ${
                 plan.destacado
-                  ? "bg-black"
+                  ? "bg-black text-white"
                   : "bg-white text-black"
               }`}
             >
@@ -135,7 +134,7 @@ function Planes() {
 
       </div>
 
-      {/* DESKTOP GRID */}
+      {/* DESKTOP */}
       <div className="hidden md:grid grid-cols-3 gap-10 max-w-6xl mx-auto">
 
         {planes.map((plan, i) => (
@@ -147,13 +146,13 @@ function Planes() {
             whileHover={{ y: -10 }}
             className={`relative rounded-3xl p-8 ${
               plan.destacado
-                ? "bg-gradient-to-b from-red-600 to-red-700 shadow-2xl scale-105"
+                ? "bg-gradient-to-b from-gray-300 to-gray-500 text-black shadow-2xl scale-105"
                 : "border border-white/10 bg-white/5"
             }`}
           >
 
             {plan.destacado && (
-              <span className="absolute top-4 right-4 text-xs bg-black px-3 py-1 rounded-full">
+              <span className="absolute top-4 right-4 text-xs bg-black text-white px-3 py-1 rounded-full">
                 Más popular
               </span>
             )}
@@ -166,14 +165,14 @@ function Planes() {
               {plan.precio}
             </p>
 
-            <p className="text-gray-300 mb-6 text-sm">
+            <p className={`mb-6 text-sm ${plan.destacado ? "text-black/80" : "text-gray-300"}`}>
               {plan.descripcion}
             </p>
 
             <ul className="text-sm space-y-3 mb-8">
               {plan.detalles.map((d, idx) => (
                 <li key={idx} className="flex gap-2">
-                  <span className="text-red-500">•</span>
+                  <span className="text-gray-300">•</span>
                   <span>{d}</span>
                 </li>
               ))}
@@ -185,7 +184,7 @@ function Planes() {
               )}`}
               className={`block text-center py-3 rounded-full font-semibold ${
                 plan.destacado
-                  ? "bg-black"
+                  ? "bg-black text-white"
                   : "bg-white text-black"
               }`}
             >

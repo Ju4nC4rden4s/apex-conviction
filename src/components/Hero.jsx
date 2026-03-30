@@ -48,10 +48,10 @@ function Hero() {
       {/* OVERLAY */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black" />
 
-      {/* GLOW */}
+      {/* GLOW (ANTES ROJO → AHORA GRIS BRILLANTE) */}
       <motion.div
         style={{ opacity }}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,0,0.2),transparent_60%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,200,200,0.25),transparent_60%)]"
       />
 
       {/* CONTENIDO */}
@@ -81,7 +81,7 @@ function Hero() {
               }}
               className={`${
                 letter === " " ? "mx-1 md:mx-2" : ""
-              } ${letter === "C" ? "text-red-500" : ""}`}
+              } ${letter === "C" ? "text-gray-300" : ""}`}
             >
               {letter}
             </motion.span>
@@ -92,7 +92,7 @@ function Hero() {
           initial={{ width: 0 }}
           animate={{ width: isMobile ? "60px" : "100px" }}
           transition={{ delay: 0.6 }}
-          className="h-[2px] bg-red-500 mt-4"
+          className="h-[2px] bg-gray-300 mt-4"
         />
 
         <motion.p
@@ -115,9 +115,9 @@ function Hero() {
             onMouseMove={handleMove}
             onMouseLeave={reset}
             href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
-            className="relative px-7 py-3 rounded-full font-semibold text-white bg-red-600 overflow-hidden group text-sm active:scale-95"
+            className="relative px-7 py-3 rounded-full font-semibold text-black bg-gray-200 overflow-hidden group text-sm active:scale-95"
           >
-            <span className="absolute inset-0 bg-red-500 blur-xl opacity-30 group-hover:opacity-60 transition"></span>
+            <span className="absolute inset-0 bg-gray-400 blur-xl opacity-30 group-hover:opacity-60 transition"></span>
 
             <span className="relative z-10">
               Entrenar ahora

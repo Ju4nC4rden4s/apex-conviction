@@ -33,7 +33,6 @@ const horarios = [
   },
 ];
 
-// 🔥 GENERAR LINK
 const generarLink = (dia, hora) => {
   const mensaje = `Hola, quiero reservar el ${dia} a las ${hora} en APEX CONVICTION`;
   return `https://wa.me/573024221645?text=${encodeURIComponent(mensaje)}`;
@@ -74,7 +73,6 @@ function Horarios() {
             className="rounded-3xl border border-gray-200 p-5 md:p-6 bg-white shadow-sm"
           >
 
-            {/* DIA */}
             <h3 className="text-lg md:text-xl font-semibold mb-3">
               {item.dia}
             </h3>
@@ -116,7 +114,7 @@ function Horarios() {
                       rel="noopener noreferrer"
                       className={`px-4 py-2 rounded-full text-xs md:text-sm transition active:scale-95 ${
                         hora.includes("MMA")
-                          ? "bg-red-100 text-red-600 hover:bg-red-600 hover:text-white"
+                          ? "bg-gray-300 text-black hover:bg-black hover:text-white"
                           : "bg-gray-100 hover:bg-black hover:text-white"
                       }`}
                     >

@@ -20,19 +20,37 @@ function Footer() {
           Tu mejor versión comienza con una decisión.
         </p>
 
-        {/* CTA */}
+        {/* CTA PRINCIPAL */}
         <a
           href="https://wa.me/573024221645?text=Hola%2C%20quiero%20empezar%20a%20entrenar%20en%20APEX%20CONVICTION"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-7 md:px-8 py-3 rounded-full bg-red-600 text-white font-semibold text-sm md:text-base 
-          hover:bg-red-700 transition shadow-md hover:shadow-xl 
+          className="inline-block px-7 md:px-8 py-3 rounded-full bg-gray-200 text-black font-semibold text-sm md:text-base 
+          hover:bg-gray-300 transition shadow-md hover:shadow-xl 
           active:scale-95"
         >
           Entrenar ahora
         </a>
 
-        {/* MICRO DETALLE (MUY PRO) */}
+        {/* 📄 BOTÓN PDF (NUEVO) */}
+        <div className="mt-6 flex flex-col items-center gap-3">
+
+          <a
+            href="/CONTRATO.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative px-6 py-2 rounded-full font-medium text-black bg-gray-100 overflow-hidden group text-sm hover:bg-gray-200 transition"
+          >
+            Normas del club
+          </a>
+
+          <span className="text-xs text-gray-400">
+            Ver o descargar documento oficial
+          </span>
+
+        </div>
+
+        {/* MICRO DETALLE */}
         <p className="text-[10px] md:text-xs text-gray-400 mt-6">
           Respuesta rápida por WhatsApp ⚡
         </p>
