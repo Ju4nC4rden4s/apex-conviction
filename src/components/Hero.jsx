@@ -1,7 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-
-const title = "APEX CONVICTION".split("");
+import { useEffect, useState } from "react";
 
 function Hero() {
   const { scrollY } = useScroll();
@@ -11,47 +9,29 @@ function Hero() {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  const bgY = useTransform(scrollY, [0, 600], [0, isMobile ? 80 : 200]);
-  const contentY = useTransform(scrollY, [0, 600], [0, isMobile ? -30 : -80]);
-  const scale = useTransform(scrollY, [0, 600], [1, isMobile ? 1.1 : 1.25]);
+  // 🔥 Animaciones suaves (sin romper render)
+  const bgY = useTransform(scrollY, [0, 600], [0, isMobile ? 60 : 120]);
+  const contentY = useTransform(scrollY, [0, 600], [0, isMobile ? -20 : -60]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-
-  const btnRef = useRef();
-
-  const handleMove = (e) => {
-    if (isMobile) return;
-
-    const rect = btnRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) * 0.25;
-    const y = (e.clientY - rect.top - rect.height / 2) * 0.25;
-
-    btnRef.current.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
-  };
-
-  const reset = () => {
-    if (isMobile) return;
-    btnRef.current.style.transform = `translate(0px, 0px) scale(1)`;
-  };
 
   return (
     <section
       id="hero"
       className="relative min-h-[100svh] md:h-screen overflow-hidden bg-black pt-[65px]"
     >
-
-      {/* BACKGROUND */}
+      {/* BACKGROUND (SIN SCALE ❌) */}
       <motion.div
-        style={{ y: bgY, scale }}
+        style={{ y: bgY }}
         className="absolute inset-0 bg-[url('/hero.jpg')] bg-cover bg-center"
       />
 
       {/* OVERLAY */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black" />
 
-      {/* GLOW (ANTES ROJO → AHORA GRIS BRILLANTE) */}
+      {/* GLOW SUAVE (optimizado) */}
       <motion.div
         style={{ opacity }}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,200,200,0.25),transparent_60%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,200,200,0.15),transparent_60%)]"
       />
 
       {/* CONTENIDO */}
@@ -59,72 +39,63 @@ function Hero() {
         style={{ y: contentY, opacity }}
         className="relative flex flex-col justify-center items-center text-center px-5 min-h-[calc(100svh-65px)] md:h-full"
       >
-
+        {/* TAG */}
         <motion.span
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ duration: 0.5 }}
           className="text-[10px] md:text-xs tracking-[0.3em] text-gray-400 mb-4"
         >
           MMA · FITNESS · PERFORMANCE
         </motion.span>
 
-        <h1 className="text-2xl sm:text-3xl md:text-7xl font-semibold tracking-tight leading-[1.1] flex flex-wrap justify-center">
-          {title.map((letter, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: isMobile ? index * 0.02 : index * 0.04,
-                duration: 0.5,
-              }}
-              className={`${
-                letter === " " ? "mx-1 md:mx-2" : ""
-              } ${letter === "C" ? "text-gray-300" : ""}`}
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </h1>
+        {/* 🔥 TITULO (FIX PRINCIPAL) */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-2xl sm:text-3xl md:text-7xl font-semibold tracking-tight leading-[1.1]"
+        >
+          <span className="text-white">APEX</span>{" "}
+          <span className="text-gray-400">CONVICTION</span>
+        </motion.h1>
 
+        {/* LINEA */}
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: isMobile ? "60px" : "100px" }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.4 }}
           className="h-[2px] bg-gray-300 mt-4"
         />
 
+        {/* TEXTO */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 0.5 }}
           className="mt-4 text-gray-300 max-w-xs md:max-w-lg text-xs md:text-lg"
         >
           No es un gimnasio. Es una mentalidad.
         </motion.p>
 
+        {/* BOTON (SIN manipular DOM ❌) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
+          transition={{ delay: 0.6 }}
           className="mt-6"
         >
           <a
-            ref={btnRef}
-            onMouseMove={handleMove}
-            onMouseLeave={reset}
             href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
-            className="relative px-7 py-3 rounded-full font-semibold text-black bg-gray-200 overflow-hidden group text-sm active:scale-95"
+            className="relative px-7 py-3 rounded-full font-semibold text-black bg-gray-200 overflow-hidden text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            <span className="absolute inset-0 bg-gray-400 blur-xl opacity-30 group-hover:opacity-60 transition"></span>
+            <span className="absolute inset-0 bg-gray-400 opacity-20 blur-lg"></span>
 
             <span className="relative z-10">
               Entrenar ahora
             </span>
           </a>
         </motion.div>
-
       </motion.div>
     </section>
   );

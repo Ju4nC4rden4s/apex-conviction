@@ -56,8 +56,10 @@ function Planes() {
     >
       {/* HEADER */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }} // 🔥 clave
+        transition={{ duration: 0.6 }}
         className="mb-12 md:mb-20 text-center"
       >
         <span className="text-xs md:text-sm tracking-[0.3em] text-gray-500">
@@ -79,12 +81,13 @@ function Planes() {
         {planesOrdenados.map((plan, i) => (
           <motion.div
             key={plan.nombre}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className={`relative rounded-3xl p-6 transition ${
+            className={`relative rounded-3xl p-6 ${
               plan.destacado
-                ? "bg-gradient-to-b from-gray-300 to-gray-500 text-black shadow-xl"
+                ? "bg-gradient-to-b from-gray-300 to-gray-500 text-black shadow-lg"
                 : "bg-white/5 border border-white/10"
             }`}
           >
@@ -120,7 +123,7 @@ function Planes() {
               href={`https://wa.me/573024221645?text=${encodeURIComponent(
                 plan.whatsapp
               )}`}
-              className={`block text-center py-2 rounded-full text-sm font-semibold ${
+              className={`block text-center py-2 rounded-full text-sm font-semibold transition ${
                 plan.destacado
                   ? "bg-black text-white"
                   : "bg-white text-black"
@@ -137,16 +140,16 @@ function Planes() {
       {/* DESKTOP */}
       <div className="hidden md:grid grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-        {planes.map((plan, i) => (
+        {planesOrdenados.map((plan, i) => (
           <motion.div
             key={plan.nombre}
-            initial={{ opacity: 0, y: 80 }}
+            initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.15 }}
-            whileHover={{ y: -10 }}
-            className={`relative rounded-3xl p-8 ${
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className={`relative rounded-3xl p-8 transition-transform duration-300 ${
               plan.destacado
-                ? "bg-gradient-to-b from-gray-300 to-gray-500 text-black shadow-2xl scale-105"
+                ? "bg-gradient-to-b from-gray-300 to-gray-500 text-black shadow-xl"
                 : "border border-white/10 bg-white/5"
             }`}
           >
@@ -182,7 +185,7 @@ function Planes() {
               href={`https://wa.me/573024221645?text=${encodeURIComponent(
                 plan.whatsapp
               )}`}
-              className={`block text-center py-3 rounded-full font-semibold ${
+              className={`block text-center py-3 rounded-full font-semibold transition ${
                 plan.destacado
                   ? "bg-black text-white"
                   : "bg-white text-black"

@@ -25,7 +25,7 @@ function Navbar() {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.4 } // 🔥 más estable
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -44,13 +44,14 @@ function Navbar() {
 
   return (
     <>
+      {/* NAVBAR */}
       <motion.nav
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        transition={{ duration: 0.5 }}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-black/70 backdrop-blur-xl border-b border-white/10 shadow-lg"
+            ? "bg-black/90 border-b border-white/10 shadow-md"
             : "bg-transparent"
         }`}
       >
@@ -62,9 +63,9 @@ function Navbar() {
           </h1>
 
           {/* LINKS DESKTOP */}
-          <ul className="hidden md:flex gap-10 text-sm font-medium relative">
+          <ul className="hidden md:flex gap-10 text-sm font-medium">
             {links.map((item) => (
-              <li key={item.name} className="relative">
+              <li key={item.name}>
                 <a
                   href={item.link}
                   className={`relative px-1 py-1 transition-colors duration-300 ${
@@ -75,12 +76,14 @@ function Navbar() {
                 >
                   {item.name}
 
-                  {active === item.link && (
-                    <motion.span
-                      layoutId="activeIndicator"
-                      className="absolute left-0 -bottom-2 h-[2px] w-full bg-gray-300"
-                    />
-                  )}
+                  {/* 🔥 indicador simple (sin layoutId) */}
+                  <span
+                    className={`absolute left-0 -bottom-2 h-[2px] w-full bg-gray-300 transition-all duration-300 ${
+                      active === item.link
+                        ? "opacity-100 scale-x-100"
+                        : "opacity-0 scale-x-0"
+                    }`}
+                  />
                 </a>
               </li>
             ))}
@@ -92,7 +95,7 @@ function Navbar() {
               href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 rounded-full bg-gray-200 text-black text-sm font-semibold hover:bg-gray-300 transition shadow-lg"
+              className="px-5 py-2 rounded-full bg-gray-200 text-black text-sm font-semibold hover:bg-gray-300 transition"
             >
               Entrenar
             </a>
@@ -123,7 +126,7 @@ function Navbar() {
         </div>
       </motion.nav>
 
-      {/* MENU MOBILE FULLSCREEN */}
+      {/* MENU MOBILE */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -143,7 +146,6 @@ function Navbar() {
               </a>
             ))}
 
-            {/* CTA MOBILE */}
             <a
               href="https://wa.me/573024221645?text=Hola%2C%20quiero%20entrenar%20en%20APEX%20CONVICTION"
               onClick={() => setOpen(false)}

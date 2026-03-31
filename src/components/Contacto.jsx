@@ -33,10 +33,9 @@ function Contacto() {
       `Hola, soy ${form.nombre}. Quiero comenzar en APEX CONVICTION.\nObjetivo: ${form.objetivo || "No especificado"}.\n${form.mensaje}`
     );
 
-    setTimeout(() => {
-      window.open(`https://wa.me/573024221645?text=${texto}`, "_blank");
-      setLoading(false);
-    }, 400);
+    window.open(`https://wa.me/573024221645?text=${texto}`, "_blank");
+
+    setLoading(false);
   };
 
   return (
@@ -46,8 +45,10 @@ function Contacto() {
 
         {/* TEXTO */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center md:text-left"
         >
           <span className="text-xs md:text-sm tracking-[0.3em] text-gray-500">
@@ -70,9 +71,11 @@ function Contacto() {
         {/* FORM */}
         <motion.form
           onSubmit={enviarWhatsApp}
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl shadow-xl space-y-6"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white/5 border border-white/10 p-6 md:p-8 rounded-3xl shadow-lg space-y-6"
         >
 
           {/* NOMBRE */}
@@ -83,7 +86,7 @@ function Contacto() {
             value={form.nombre}
             onChange={handleChange}
             required
-            className="w-full p-4 text-base rounded-xl bg-black border border-white/10 focus:border-gray-300 focus:outline-none transition"
+            className="w-full p-4 text-base rounded-xl bg-black border border-white/10 focus:border-gray-300 focus:outline-none"
           />
 
           {/* OBJETIVO */}
@@ -101,7 +104,7 @@ function Contacto() {
                   className={`py-2 rounded-full text-xs md:text-sm transition ${
                     form.objetivo === obj
                       ? "bg-gray-200 text-black"
-                      : "bg-white/10 hover:bg-white/20"
+                      : "bg-white/10"
                   }`}
                 >
                   {obj}
@@ -117,14 +120,14 @@ function Contacto() {
             value={form.mensaje}
             onChange={handleChange}
             rows="3"
-            className="w-full p-4 text-base rounded-xl bg-black border border-white/10 focus:border-gray-300 focus:outline-none transition"
-          ></textarea>
+            className="w-full p-4 text-base rounded-xl bg-black border border-white/10 focus:border-gray-300 focus:outline-none"
+          />
 
           {/* BOTÓN */}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gray-200 text-black py-3 rounded-full font-semibold text-base hover:bg-gray-300 transition active:scale-95"
+            className="w-full bg-gray-200 text-black py-3 rounded-full font-semibold text-base transition-transform duration-200 active:scale-95"
           >
             {loading ? "Enviando..." : "Hablar por WhatsApp"}
           </button>

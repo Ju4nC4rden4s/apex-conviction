@@ -43,8 +43,10 @@ function Horarios() {
 
       {/* HEADER */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }} // 🔥 clave
+        transition={{ duration: 0.6 }}
         className="text-center mb-12 md:mb-20"
       >
         <span className="text-xs md:text-sm tracking-[0.3em] text-gray-400">
@@ -66,9 +68,10 @@ function Horarios() {
         {horarios.map((item, i) => (
           <motion.div
             key={item.dia}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.08 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05 }}
             className="rounded-3xl border border-gray-200 p-5 md:p-6 bg-white shadow-sm"
           >
 
@@ -77,7 +80,7 @@ function Horarios() {
             </h3>
 
             {/* MAÑANA */}
-            <div className="mb-3">
+            <div className="mb-4">
               <p className="text-[10px] md:text-xs text-gray-400 mb-2 tracking-wider">
                 MAÑANA
               </p>
@@ -89,7 +92,7 @@ function Horarios() {
                     href={generarLink(item.dia, hora)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-full text-xs md:text-sm bg-gray-100 hover:bg-black hover:text-white transition active:scale-95"
+                    className="px-4 py-2 rounded-full text-xs md:text-sm bg-gray-100 text-black transition-transform duration-200 active:scale-95"
                   >
                     {hora}
                   </a>
@@ -111,10 +114,10 @@ function Horarios() {
                       href={generarLink(item.dia, hora)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`px-4 py-2 rounded-full text-xs md:text-sm transition active:scale-95 ${
+                      className={`px-4 py-2 rounded-full text-xs md:text-sm transition-transform duration-200 active:scale-95 ${
                         hora.includes("MMA")
-                          ? "bg-gray-300 text-black hover:bg-black hover:text-white"
-                          : "bg-gray-100 hover:bg-black hover:text-white"
+                          ? "bg-gray-300 text-black font-semibold"
+                          : "bg-gray-100 text-black"
                       }`}
                     >
                       {hora}
@@ -134,7 +137,7 @@ function Horarios() {
           href="https://wa.me/573024221645?text=Hola%2C%20quiero%20reservar%20una%20clase%20en%20APEX%20CONVICTION"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-8 py-3 rounded-full bg-black text-white font-semibold hover:bg-gray-900 transition"
+          className="inline-block px-8 py-3 rounded-full bg-black text-white font-semibold transition-transform duration-300 hover:scale-105 active:scale-95"
         >
           Reservar clase
         </a>
