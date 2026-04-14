@@ -9,7 +9,7 @@ const servicios = [
   {
     titulo: "Acondicionamiento",
     descripcion: "Resistencia, agilidad y rendimiento físico total.",
-    imagen: "/acondicionamiento.jpg",
+    imagen: "/acondicionamientonueva.jpg",
   },
   {
     titulo: "Fuerza",

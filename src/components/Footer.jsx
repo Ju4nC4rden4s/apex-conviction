@@ -37,7 +37,7 @@ function Footer() {
         <div className="mt-6 flex flex-col items-center gap-3">
 
           <a
-            href="/CONTRATO.pdf"
+            href="/ACUERDO.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2 rounded-full font-medium text-black bg-gray-100 text-sm transition hover:bg-gray-200"
